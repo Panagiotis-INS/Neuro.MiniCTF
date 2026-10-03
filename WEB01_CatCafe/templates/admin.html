@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Admin — Purr-fect Beans{% endblock %}
+{% block content %}
+<h1>🛠️ Staff Panel</h1>
+<p class="muted">Welcome back, {{ session.username }}. The cats grudgingly accept your authority.</p>
+
+<div class="card">
+    <h3>Admin flag</h3>
+    <code>{{ admin_flag }}</code>
+</div>
+
+<div class="card">
+    <h3>🐾 Smart-feeder &amp; Cat-cam health check</h3>
+    <p class="muted">
+        The cafe runs a handful of IoT gadgets on the back-of-house LAN —
+        automatic treat dispensers, cat-cams above the napping shelves, and
+        the smart water fountain by the door. If a regular says
+        <em>"Mittens never got her 3pm treat"</em>, ping the feeder from
+        here to check it's still online.
+    </p>
+
+    <table class="orders">
+        <thead><tr><th>Device</th><th>Type</th><th>Location</th></tr></thead>
+        <tbody>
+        {% for d in devices %}
+            <tr><td><code>{{ d.name }}</code></td><td>{{ d.kind }}</td><td>{{ d.where }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <form method="post" style="margin-top:1rem">
+        <label>Device hostname
+            <input name="host" value="{{ host }}" list="device-list"
+                   placeholder="feeder-lounge" required>
+            <datalist id="device-list">
+                {% for d in devices %}<option value="{{ d.name }}">{% endfor %}
+            </datalist>
+        </label>
+        <button class="btn btn-primary" type="submit">Check device</button>
+    </form>
+
+    {% if output is not none %}
+        <h4>Device response</h4>
+        <pre class="shell">{{ output }}</pre>
+    {% endif %}
+</div>
+{% endblock %}

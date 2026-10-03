@@ -1,0 +1,203 @@
+:root {
+    --bg:        #fdf6ec;
+    --ink:       #3b2a20;
+    --accent:    #c47a4e;
+    --accent-2:  #8b4a2b;
+    --card:      #fffaf2;
+    --muted:    #7a6a5e;
+    --error:    #a0303a;
+}
+
+* { box-sizing: border-box; }
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.5rem;
+    background: var(--accent-2);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.topbar .brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    text-decoration: none;
+}
+.topbar nav {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.topbar nav a {
+    color: #ffe9d6;
+    text-decoration: none;
+}
+.topbar nav a:hover { color: #fff; text-decoration: underline; }
+.topbar .admin-link { color: #ffd27a; font-weight: 600; }
+.whoami { color: #ffe9d6; font-size: .9rem; }
+
+main {
+    flex: 1;
+    max-width: 960px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px dashed #d9c7b5;
+}
+
+h1 { color: var(--accent-2); }
+
+.hero {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+}
+.hero h1 { font-size: 2.6rem; margin-bottom: .3rem; }
+.hero .moto {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin: 0.3rem 0 1rem;
+}
+.hero .sub { color: var(--muted); }
+
+.cta { margin-top: 1.5rem; display: flex; gap: .8rem; justify-content: center; }
+
+.btn {
+    display: inline-block;
+    padding: .55rem 1.2rem;
+    border: 2px solid var(--accent-2);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--accent-2);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn:hover { background: var(--accent-2); color: #fff; }
+.btn-primary {
+    background: var(--accent-2);
+    color: #fff;
+}
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+
+.cats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+.cat {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2.2rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.cat p { margin: .3rem 0 0; font-size: 1rem; font-weight: 600; }
+.cat small { color: var(--muted); font-size: .8rem; }
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.menu-item {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.menu-item h3 { margin-top: 0; color: var(--accent-2); }
+.menu-item .price {
+    display: inline-block;
+    margin-top: .4rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.card label {
+    display: block;
+    margin-bottom: .8rem;
+    font-weight: 600;
+    color: var(--accent-2);
+}
+.card input, .card textarea {
+    width: 100%;
+    padding: .5rem .7rem;
+    border: 1px solid #d9c7b5;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+    margin-top: .25rem;
+}
+
+table.orders {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+}
+table.orders th, table.orders td {
+    padding: .6rem .8rem;
+    text-align: left;
+    border-bottom: 1px solid #ead8c3;
+}
+table.orders th {
+    background: #eadbc9;
+    color: var(--accent-2);
+}
+table.orders tr:last-child td { border-bottom: 0; }
+
+pre.shell {
+    background: #1e1a16;
+    color: #e8d9c3;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: "JetBrains Mono", Consolas, monospace;
+    font-size: .85rem;
+}
+
+.muted { color: var(--muted); }
+.error {
+    background: #fbe3e4;
+    color: var(--error);
+    padding: .6rem .9rem;
+    border-radius: 8px;
+    border: 1px solid #e8b4b7;
+}
+code {
+    background: #f0e2d1;
+    padding: .15rem .4rem;
+    border-radius: 4px;
+    font-family: "JetBrains Mono", Consolas, monospace;
+}

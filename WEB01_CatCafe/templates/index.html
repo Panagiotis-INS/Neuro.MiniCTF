@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <h1>Purr-fect Beans</h1>
+    <p class="moto">We have cats. No coffee yet. We are working on that.</p>
+    <p class="sub">Pet a cat. Order a snack. Judge our barista like he's a laser pointer.</p>
+    <div class="cta">
+        <a class="btn" href="{{ url_for('menu') }}">See the menu</a>
+        {% if session %}
+            <a class="btn btn-primary" href="{{ url_for('order_new') }}">Place an order</a>
+        {% else %}
+            <a class="btn btn-primary" href="{{ url_for('register') }}">Join the clowder</a>
+        {% endif %}
+    </div>
+</section>
+
+<section class="cats">
+    <div class="cat">🐱<p>Mr. Whiskers</p><small>Head of QA (quality attention)</small></div>
+    <div class="cat">😼<p>Mittens</p><small>Chief Napping Officer</small></div>
+    <div class="cat">🐈‍⬛<p>Shadow</p><small>Security — hisses at pigeons</small></div>
+    <div class="cat">🐈<p>Biscuit</p><small>Dough kneader. Literally.</small></div>
+</section>
+{% endblock %}

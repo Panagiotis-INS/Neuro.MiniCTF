@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}My orders — Purr-fect Beans{% endblock %}
+{% block content %}
+<h1>My orders</h1>
+{% if orders %}
+<table class="orders">
+    <thead><tr><th>#</th><th>Item</th><th>Note</th><th></th></tr></thead>
+    <tbody>
+    {% for o in orders %}
+        <tr>
+            <td>{{ o.id }}</td>
+            <td>{{ o.item }}</td>
+            <td>{{ o.note }}</td>
+            <td><a href="{{ url_for('order_detail', order_id=o.id) }}">view</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p class="muted">No orders yet. The cats are disappointed.</p>
+{% endif %}
+<p><a class="btn btn-primary" href="{{ url_for('order_new') }}">+ New order</a></p>
+{% endblock %}

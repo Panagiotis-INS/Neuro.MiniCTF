@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Menu — Purr-fect Beans{% endblock %}
+{% block content %}
+<h1>Today's Menu</h1>
+<p class="muted">Coffee pending. Please accept these snacks as compensation.</p>
+
+<div class="menu-grid">
+    {% for i in items %}
+        <div class="menu-item">
+            <h3>{{ i.name }}</h3>
+            <p>{{ i.desc }}</p>
+            <span class="price">{{ i.price }}</span>
+        </div>
+    {% endfor %}
+</div>
+
+{% if session %}
+    <p><a class="btn btn-primary" href="{{ url_for('order_new') }}">Place an order →</a></p>
+{% else %}
+    <p><a class="btn" href="{{ url_for('login') }}">Log in to order</a></p>
+{% endif %}
+{% endblock %}

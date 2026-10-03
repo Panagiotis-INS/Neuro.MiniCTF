@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Register — Purr-fect Beans{% endblock %}
+{% block content %}
+<h1>Join the clowder</h1>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<form method="post" class="card">
+    <label>Choose a username <input name="username" autofocus required></label>
+    <label>Choose a password <input name="password" type="password" required></label>
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>
+<p class="muted">Already have an account? <a href="{{ url_for('login') }}">Log in</a>.</p>
+{% endblock %}

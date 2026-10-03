@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Purr-fect Beans — Cat Cafe{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}">🐾 Purr-fect Beans</a>
+    <nav>
+        <a href="{{ url_for('menu') }}">Menu</a>
+        {% if session %}
+            <a href="{{ url_for('order_new') }}">New order</a>
+            <a href="{{ url_for('orders_mine') }}">My orders</a>
+            {% if session.isAdmin %}
+                <a href="{{ url_for('admin') }}" class="admin-link">Admin</a>
+            {% endif %}
+            <span class="whoami">signed in as <b>{{ session.username }}</b></span>
+            <a href="{{ url_for('logout') }}">Log out</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Log in</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>© Purr-fect Beans — <i>We have cats. No coffee yet. We are working on that.</i></p>
+</footer>
+</body>
+</html>

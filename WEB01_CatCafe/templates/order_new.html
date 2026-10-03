@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}New order — Purr-fect Beans{% endblock %}
+{% block content %}
+<h1>Place an order</h1>
+<form method="post" class="card">
+    <label>Item
+        <input name="item" list="items" required placeholder="Tabby Tuna Bowl">
+        <datalist id="items">
+            <option value="Tabby Tuna Bowl">
+            <option value="Siamese Salmon">
+            <option value="Maine Coon Milk">
+            <option value="Persian Pastry">
+            <option value="Sphynx Sparkling">
+        </datalist>
+    </label>
+    <label>Note for the kitchen
+        <textarea name="note" rows="3" placeholder="e.g. extra tuna, no judgement"></textarea>
+    </label>
+    <button class="btn btn-primary" type="submit">Submit order</button>
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Order — Purr-fect Beans{% endblock %}
+{% block content %}
+{% if order %}
+    <h1>Order #{{ order.id }}</h1>
+    <div class="card">
+        <p><b>Customer:</b> {{ order.username }}</p>
+        <p><b>Item:</b> {{ order.item }}</p>
+        <p><b>Note:</b> {{ order.note }}</p>
+    </div>
+{% else %}
+    <h1>Order not found</h1>
+    <p class="muted">The cats have no record of that order.</p>
+{% endif %}
+<p><a href="{{ url_for('orders_mine') }}">← back to my orders</a></p>
+{% endblock %}
